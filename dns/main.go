@@ -25,6 +25,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"net"
 	"os"
 	"strconv"
@@ -109,6 +110,7 @@ var customAuthorityResolver = func(authority string) (netResolver, error) {
 
 // NewBuilder creates a dnsBuilder which is used to factory DNS resolvers.
 func NewBuilder() resolver.Builder {
+	log.Println("using custom dns")
 	return &dnsBuilder{}
 }
 
