@@ -46,7 +46,7 @@ import (
 // addresses from SRV records.  Must not be changed after init time.
 var EnableSRVLookups = false
 
-var logger = grpclog.Component("dns")
+var logger = grpclog.Component("cachedns")
 
 // Globals to stub out in tests. TODO: Perhaps these two can be combined into a
 // single variable for testing the resolver?
@@ -158,7 +158,7 @@ func (b *dnsBuilder) Build(target resolver.Target, cc resolver.ClientConn, opts 
 
 // Scheme returns the naming scheme of this resolver builder, which is "dns".
 func (b *dnsBuilder) Scheme() string {
-	return "dns"
+	return "cachedns"
 }
 
 type netResolver interface {
