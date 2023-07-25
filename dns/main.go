@@ -325,6 +325,7 @@ func (d *dnsResolver) lookupHost() ([]resolver.Address, error) {
 		err = handleDNSError(err, "A")
 		return nil, err
 	}
+	log.Println("addrs: ", addrs)
 	newAddrs := make([]resolver.Address, 0, len(addrs))
 	for _, a := range addrs {
 		ip, ok := formatIP(a)
